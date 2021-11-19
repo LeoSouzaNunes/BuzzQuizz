@@ -1,154 +1,228 @@
-body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    gap: 60px 0px;
+  gap: 60px 0px;
 
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 
-    background: #E5E5E5;
+  background: #e5e5e5;
 }
-.header{
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
-    position: fixed;
-    top: 0px;
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    width: 100%;
-    height: 69px;
+  position: fixed;
+  top: 0px;
 
-    background: #EC362D;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
+  width: 100%;
+  height: 69px;
 
-.header .header-title{
-    font-style: normal;
-    font-weight: bold;
-    font-size: 37px;
-    line-height: 43px;
-
-    color: #FFFFFF;
-}
-.first-page{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    gap: 60px 0px;
+  background: #ec362d;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.my-quizzes{
-      padding-top: 160px;
+.header .header-title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 37px;
+  line-height: 43px;
+
+  color: #ffffff;
 }
-.my-quizzes-empty{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.first-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  
-    gap: 20px 0px;
-
-    width: 1051px;
-    height: 181px;
-
-    background: #FAFAFA;
-    border: 2px dashed #D5D5D5;
-    border-radius: 5px;
+  gap: 60px 0px;
 }
+.second-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-.my-quizzes-empty span{
-    width: 250px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 23px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-
-    color: #B9B9B9;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
+.my-quizzes {
+  padding-top: 160px;
+}
+.my-quizzes-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-.my-quizzes-empty .create-quizz{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  gap: 20px 0px;
 
-    width: 151px;
-    height: 40px;
+  width: 1051px;
+  height: 181px;
 
-    font-style: normal;
-    font-weight: normal;
-    font-size: 21px;
-    line-height: 25px;
-
-    color: #EC362D;
-
-    background: #FAFAFA;
-    border: 2px dashed #EC362D;
-    border-radius: 50px;
+  background: #fafafa;
+  border: 2px dashed #d5d5d5;
+  border-radius: 5px;
 }
 
-.create-quizz:hover{
-    cursor: pointer;
+.my-quizzes-empty span {
+  width: 250px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #b9b9b9;
 }
 
-.all-quizzes-container{
-    padding-bottom: 200px;
-    width: 1051px;
+.my-quizzes-empty .create-quizz {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 151px;
+  height: 40px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 25px;
+
+  color: #ec362d;
+
+  background: #fafafa;
+  border: 2px dashed #ec362d;
+  border-radius: 50px;
 }
 
-.all-quizzes-container .all-quizzes-title{
-    padding-bottom: 15px;
-
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 23px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-
-    color: #000000;
+.create-quizz:hover {
+  cursor: pointer;
 }
 
-.all-quizzes-container .all-quizzes{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 15px;
+.all-quizzes-container {
+  padding-bottom: 200px;
+  width: 1051px;
 }
 
-.all-quizzes .quizz-box{
-    position: relative;
+.all-quizzes-container .all-quizzes-title {
+  padding-bottom: 15px;
 
-    width: 340px;
-    height: 181px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  text-align: center;
 
-    border-radius: 5px;
-}
-.all-quizzes .quizz-box:hover{
-    cursor: pointer;
-}
-
-.quizz-box h3{
-    position: absolute;
-    left: 15px;
-    bottom: 7px;
-
-    font-style: normal;
-    font-weight: normal;
-    font-size: 19px;
-    line-height: 22px;
-
-    color: #FFFFFF;
+  color: #000000;
 }
 
-.hidden{
-    display: none;
+.all-quizzes-container .all-quizzes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 15px;
 }
 
+.all-quizzes .quizz-box {
+  position: relative;
+
+  width: 340px;
+  height: 181px;
+
+  border-radius: 5px;
+}
+.all-quizzes .quizz-box:hover {
+  cursor: pointer;
+}
+
+.quizz-box h3 {
+  position: absolute;
+  left: 15px;
+  bottom: 7px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 19px;
+  line-height: 22px;
+
+  color: #ffffff;
+}
+.question-quiz {
+  margin-top: 80px;
+  position: absolute;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 39px;
+  line-height: 46px;
+
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+.question-quiz h1 {
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.questions {
+  margin-top: 500px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  align-items: center;
+  width: 759px;
+  height: 500px;
+}
+.anwsers-title {
+  background: #434ca0;
+  width: inherit;
+  height: 100px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  color: #ffffff;
+}
+.anwsers {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 30px 30px 30px;
+}
+.anwsers img {
+  width: 300px;
+  height: 260x;
+}
+.anwsers span {
+  margin: 8px 8px 8px 8px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 23px;
+}
+.hidden {
+  display: none;
+}
