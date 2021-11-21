@@ -24,42 +24,56 @@ function buildingQuizzes(value) {
 }
 
 function selectPublicQuizz(a) {
-    let hideFirstPage = document.querySelector(".first-page")
-    hideFirstPage.classList.add("hidden");
-
+    /* let hideFirstPage = document.querySelector(".first-page")
+    hideFirstPage.classList.add("hidden"); */
+    document.styleSheets[1].deleteRule(4)
+    document.styleSheets[1].insertRule(`.first-page {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    
+      gap: 60px 0px;
+    }`,5)
+    console.log(document.styleSheets[1])
    
         
         let imgQuiz = document.querySelector(".second-page")
-        let questionsQuiz = document.querySelector(".question-quiz");
     console.log(arrayAllQuizzes)
 
             let getIDQuiz = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${a}`)
             getIDQuiz.then((id)=>{
                
-                console.log(id.data.questions[0].answers[0].image)
+                console.log(id.data.questions)
 
                
-                imgQuiz.innerHTML += `<div class="question-quiz"><div class="img-quiz" /></div>
+                imgQuiz.innerHTML = `<div class="question-quiz"><div class="img-quiz" /></div>
                 <h1>${id.data.title}</h1>
-              </div><div class="questions">
-              <div class="anwsers-title">${id.data.questions[0].title}</div>
-              <div class="anwsers">
-                <img src="${id.data.questions[0].answers[0].image}" />
-                <span>${id.data.questions[0].answers[0].text}</span>
-              </div>
-              <div class="anwsers">
-                <img src="${id.data.questions[0].answers[1].image}" />
-                <span>${id.data.questions[0].answers[1].text}</span>
-              </div>
-              <div class="anwsers">
-                <img src="${id.data.questions[0].answers[2].image}" />
-                <span>${id.data.questions[0].answers[2].text}</span>
-              </div>
-              <div class="anwsers">
-                <img src="${id.data.questions[0].answers[3].image}" />
-                <span>${id.data.questions[0].answers[3].text}</span>
-              </div>
-            </div>`
+              `
+
+              for(let i=0;i<id.data.questions.length;i++){
+                
+                
+                
+                imgQuiz.innerHTML +=`<div class="questions" >
+                <div class="anwsers-title">${id.data.questions[i].title}</div>
+                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[0].isCorrectAnswer},this)">
+                  <img src="${id.data.questions[i].answers[0].image}" />
+                  <span>${id.data.questions[i].answers[0].text}</span>
+                </div>
+                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[1].isCorrectAnswer},this)">
+                  <img src="${id.data.questions[i].answers[1].image}" />
+                  <span>${id.data.questions[i].answers[1].text}</span>
+                </div>
+                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[2].isCorrectAnswer},this)">
+                  <img src="${id.data.questions[i].answers[2].image}" />
+                  <span>${id.data.questions[i].answers[2].text}</span>
+                </div>
+                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[3].isCorrectAnswer},this)">
+                  <img src="${id.data.questions[i].answers[3].image}" />
+                  <span ">${id.data.questions[i].answers[3].text}</span>
+                </div>`
+                
+              }
                 let b = 
                 `.img-quiz
                 { width: 100%;
@@ -77,3 +91,47 @@ function selectPublicQuizz(a) {
        
 }
 
+function incorrectAnwsers(anwser,div){
+  let count = 0;
+  count += 1;
+  if(count >= 2){
+    return
+  }
+ console.log(div.parentNode.children[1].attributes[1])
+  for(let i = 1;i<div.parentNode.childElementCount;i++)
+  {
+    if(div.parentNode.children[i].attributes[i]!==div.attributes[1]){
+    
+    
+    
+     div.classList.remove("text-wrong-answer") 
+      
+    div.parentNode.children[i].classList.add("text-wrong-answer")
+    div.parentNode.children[i].classList.add("color-text-wrong-answer")
+    console.log(div.parentNode.children[i])
+  }
+  else {
+    div.classList.add("color-text-right-answer")
+  }
+}
+console.log(anwser)
+
+}
+/*<div class="questions">
+              <div class="anwsers-title">${id.data.questions[0].title}</div>
+              <div class="anwsers">
+                <img src="${id.data.questions[0].answers[0].image}" />
+                <span>${id.data.questions[0].answers[0].text}</span>
+              </div>
+              <div class="anwsers">
+                <img src="${id.data.questions[0].answers[1].image}" />
+                <span>${id.data.questions[0].answers[1].text}</span>
+              </div>
+              <div class="anwsers">
+                <img src="${id.data.questions[0].answers[2].image}" />
+                <span>${id.data.questions[0].answers[2].text}</span>
+              </div>
+              <div class="anwsers">
+                <img src="${id.data.questions[0].answers[3].image}" />
+                <span>${id.data.questions[0].answers[3].text}</span>
+              </div> */
