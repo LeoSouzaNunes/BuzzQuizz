@@ -49,10 +49,10 @@ function selectPublicQuizz(a) {
                 imgQuiz.innerHTML = `<div class="question-quiz"><div class="img-quiz" /></div>
                 <h1>${id.data.title}</h1>
               `
-
+              
               for(let i=0;i<id.data.questions.length;i++){
                 
-                
+                console.log(id.data.questions[i].answers.length)
                 
                 imgQuiz.innerHTML +=`<div class="questions" >
                 <div class="anwsers-title">${id.data.questions[i].title}</div>
@@ -83,12 +83,7 @@ function selectPublicQuizz(a) {
                 background-size: cover;
                 }`
             console.log(document.styleSheets[1].insertRule(b))
-            })
-            
-       
-        
-            
-       
+            })   
 }
 
 function incorrectAnwsers(anwser,div){
@@ -98,40 +93,41 @@ function incorrectAnwsers(anwser,div){
     return
   }
  console.log(div.parentNode.children[1].attributes[1])
-  for(let i = 1;i<div.parentNode.childElementCount;i++)
+ 
+ if(div.attributes[1].specified!==anwser){
+    
+    
+    
+  div.classList.remove("text-wrong-answer")  
+  div.classList.add("text-wrong-answer")
+  div.classList.add("color-text-wrong-answer")
+  console.log(div.attributes[1])
+}
+else {
+  div.classList.add("text-wrong-answer")
+  div.classList.add("color-text-wrong-answer")
+  div.classList.remove("text-wrong-answer") 
+  div.classList.add("color-text-right-answer")
+}
+
+console.log(div.parentNode.children)
+  
+}
+ /* for(let i = 1;i<div.parentNode.childElementCount;i++)
   {
-    if(div.parentNode.children[i].attributes[i]!==div.attributes[1]){
+    if(div.parentNode.children[i].attributes[1].specified!==anwser){
     
     
     
-     div.classList.remove("text-wrong-answer") 
-      
+    div.classList.remove("text-wrong-answer")  
     div.parentNode.children[i].classList.add("text-wrong-answer")
     div.parentNode.children[i].classList.add("color-text-wrong-answer")
-    console.log(div.parentNode.children[i])
+    console.log(div.parentNode.children[i].attributes[1])
   }
   else {
+    div.parentNode.children[i].classList.add("text-wrong-answer")
+    div.parentNode.children[i].classList.add("color-text-wrong-answer")
+    div.classList.remove("text-wrong-answer") 
     div.classList.add("color-text-right-answer")
   }
-}
-console.log(anwser)
-
-}
-/*<div class="questions">
-              <div class="anwsers-title">${id.data.questions[0].title}</div>
-              <div class="anwsers">
-                <img src="${id.data.questions[0].answers[0].image}" />
-                <span>${id.data.questions[0].answers[0].text}</span>
-              </div>
-              <div class="anwsers">
-                <img src="${id.data.questions[0].answers[1].image}" />
-                <span>${id.data.questions[0].answers[1].text}</span>
-              </div>
-              <div class="anwsers">
-                <img src="${id.data.questions[0].answers[2].image}" />
-                <span>${id.data.questions[0].answers[2].text}</span>
-              </div>
-              <div class="anwsers">
-                <img src="${id.data.questions[0].answers[3].image}" />
-                <span>${id.data.questions[0].answers[3].text}</span>
-              </div> */
+} */
