@@ -1,3 +1,42 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let arrayAllQuizzes;
 let ulAllQuizzes;
 
@@ -24,8 +63,7 @@ function buildingQuizzes(value) {
 }
 
 function selectPublicQuizz(a) {
-    /* let hideFirstPage = document.querySelector(".first-page")
-    hideFirstPage.classList.add("hidden"); */
+    
     document.styleSheets[1].deleteRule(4)
     document.styleSheets[1].insertRule(`.first-page {
       display: none;
@@ -34,43 +72,60 @@ function selectPublicQuizz(a) {
     
       gap: 60px 0px;
     }`,5)
-    console.log(document.styleSheets[1])
+    
    
-        
+      
         let imgQuiz = document.querySelector(".second-page")
     console.log(arrayAllQuizzes)
 
             let getIDQuiz = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${a}`)
             getIDQuiz.then((id)=>{
                
-                console.log(id.data.questions)
-
                
                 imgQuiz.innerHTML = `<div class="question-quiz"><div class="img-quiz" /></div>
                 <h1>${id.data.title}</h1>
               `
               
+              let randomNumber;
+              let tmp;
+              let rdnAnswers = [];
+              for (let i = 0; i < 4; i++) {
+                rdnAnswers[i] = i ;
+             }
+              console.log(rdnAnswers)
+          for(let i = rdnAnswers.length;i;){
+            
+            
+                randomNumber = Math.random() * i-- | 0;
+                tmp = rdnAnswers[randomNumber];
+                // troca o número aleatório pelo atual
+                rdnAnswers[randomNumber] = rdnAnswers[i];
+                // troca o atual pelo aleatório
+                rdnAnswers[i] = tmp;
+              
+          }
+          console.log(rdnAnswers)
               for(let i=0;i<id.data.questions.length;i++){
-                
-                console.log(id.data.questions[i].answers.length)
+                console.log(rdnAnswers[i])
+                console.log(id.data.questions[i].answers[rdnAnswers[i]])
                 
                 imgQuiz.innerHTML +=`<div class="questions" >
                 <div class="anwsers-title">${id.data.questions[i].title}</div>
-                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[0].isCorrectAnswer},this)">
-                  <img src="${id.data.questions[i].answers[0].image}" />
-                  <span>${id.data.questions[i].answers[0].text}</span>
+                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[rdnAnswers[0]].isCorrectAnswer},this)">
+                  <img src="${id.data.questions[i].answers[rdnAnswers[0]].image}" />
+                  <span>${id.data.questions[i].answers[rdnAnswers[0]].text}</span>
                 </div>
-                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[1].isCorrectAnswer},this)">
-                  <img src="${id.data.questions[i].answers[1].image}" />
-                  <span>${id.data.questions[i].answers[1].text}</span>
+                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[rdnAnswers[1]].isCorrectAnswer},this)">
+                  <img src="${id.data.questions[i].answers[rdnAnswers[1]].image}" />
+                  <span>${id.data.questions[i].answers[rdnAnswers[1]].text}</span>
                 </div>
-                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[2].isCorrectAnswer},this)">
-                  <img src="${id.data.questions[i].answers[2].image}" />
-                  <span>${id.data.questions[i].answers[2].text}</span>
+                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[rdnAnswers[2]].isCorrectAnswer},this)">
+                  <img src="${id.data.questions[i].answers[rdnAnswers[2]].image}" />
+                  <span>${id.data.questions[i].answers[rdnAnswers[2]].text}</span>
                 </div>
-                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[3].isCorrectAnswer},this)">
-                  <img src="${id.data.questions[i].answers[3].image}" />
-                  <span ">${id.data.questions[i].answers[3].text}</span>
+                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[rdnAnswers[3]].isCorrectAnswer},this)">
+                  <img src="${id.data.questions[i].answers[rdnAnswers[3]].image}" />
+                  <span ">${id.data.questions[i].answers[rdnAnswers[3]].text}</span>
                 </div>`
                 
               }
@@ -82,52 +137,43 @@ function selectPublicQuizz(a) {
                 background-repeat: no-repeat;
                 background-size: cover;
                 }`
-            console.log(document.styleSheets[1].insertRule(b))
+            
             })   
 }
 
 function incorrectAnwsers(anwser,div){
-  let count = 0;
-  count += 1;
-  if(count >= 2){
-    return
-  }
- console.log(div.parentNode.children[1].attributes[1])
+  
+  
+ console.log(div.parentNode.children.length)
+ console.log(div.parentNode.children[1])
  
- if(div.attributes[1].specified!==anwser){
-    
-    
-    
-  div.classList.remove("text-wrong-answer")  
-  div.classList.add("text-wrong-answer")
-  div.classList.add("color-text-wrong-answer")
-  console.log(div.attributes[1])
-}
-else {
-  div.classList.add("text-wrong-answer")
-  div.classList.add("color-text-wrong-answer")
-  div.classList.remove("text-wrong-answer") 
+    console.log(div.classList)
+    for(let i = 0 ; i<div.classList.length;i++)
+    {if(div.classList[i] == "color-text-wrong-answer" || div.classList[i] == "text-wrong-answer" || div.classList[i] == "color-text-right-answer"){
+      return
+    }
+  }
+    for(let i = 1; i<div.parentNode.children.length;i++){
+     if(div.attributes[1].specified!==anwser){ 
+      div.parentNode.children[i].classList.add("color-text-wrong-answer") 
+      if(div !== div.parentNode.children[i])
+      {
+        div.parentNode.children[i].classList.add("text-wrong-answer")
+        
+     }
+    }
+    else{
+       
   div.classList.add("color-text-right-answer")
-}
-
-console.log(div.parentNode.children)
+  if(div !== div.parentNode.children[i])
+      {
+        div.parentNode.children[i].classList.add("text-wrong-answer")
+        div.parentNode.children[i].classList.add("color-text-wrong-answer") 
+      
+     }
+    }
+    }
+  
+   setInterval((div.parentNode.nextSibling.scrollIntoView({block: "end"})),2000) 
   
 }
- /* for(let i = 1;i<div.parentNode.childElementCount;i++)
-  {
-    if(div.parentNode.children[i].attributes[1].specified!==anwser){
-    
-    
-    
-    div.classList.remove("text-wrong-answer")  
-    div.parentNode.children[i].classList.add("text-wrong-answer")
-    div.parentNode.children[i].classList.add("color-text-wrong-answer")
-    console.log(div.parentNode.children[i].attributes[1])
-  }
-  else {
-    div.parentNode.children[i].classList.add("text-wrong-answer")
-    div.parentNode.children[i].classList.add("color-text-wrong-answer")
-    div.classList.remove("text-wrong-answer") 
-    div.classList.add("color-text-right-answer")
-  }
-} */
