@@ -1,82 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/reset.css" />
-    <link
-      rel="shortcut icon"
-      href="assets/images/buzzquizz.png"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="assets/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
-    <title>BuzzQuizz</title>
-  </head>
 
-  <body>
-    <header class="header">
-      <h1 class="header-title" onclick="refreshPage()">BuzzQuizz</h1>
-    </header>
-    <div class="first-page">
-      <div class="my-quizzes">
-        <div class="my-quizzes-empty">
-          <span>Você não criou nenhum quizz ainda :(</span>
-          <button class="create-quizz" onclick="thirdPageOn()">
-            Criar Quizz
-          </button>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/reset.css" />
+  <link rel="shortcut icon" href="assets/images/buzzquizz.png" type="image/x-icon" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <title>BuzzQuizz</title>
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="header-title" onclick='refreshPage()'>BuzzQuizz</h1>
+  </header>
+  <div class="first-page">
+    <div class="my-quizzes">
+      <div class="my-quizzes-empty">
+        <span>Você não criou nenhum quizz ainda :(</span>
+        <button class="create-quizz" onclick="thirdPageOn()" data-identifier="create-quizz">Criar Quizz</button>
       </div>
       <div class="all-quizzes-container">
         <h2 class="all-quizzes-title">Todos os Quizzes</h2>
-        <ul class="all-quizzes"></ul>
+        <ul class="all-quizzes" data-identifier="general-quizzes"></ul>
       </div>
     </div>
-    <div class="second-page"></div>
+  </div>
+  <div class="second-page"></div>
 
-    <div class="third-page hidden">
-      <div class="first-step step-style">
-        <h2>Comece pelo começo</h2>
-        <div class="inputs-box-style inputs-first-step">
-          <input type="text" placeholder="Título do seu quizz" />
-          <input type="text" placeholder="URL da imagem do seu quizz" />
-          <input type="text" placeholder="Quantidade de perguntas do quizz" />
-          <input type="text" placeholder="Quantidade de níveis do quizz" />
-        </div>
-        <button class="next-step" onclick="firstStepCreating()">
-          <span>Prosseguir pra criar perguntas</span>
-        </button>
+  <div class="third-page hidden">
+    <div class="first-step step-style">
+      <h2>Comece pelo começo</h2>
+      <div class="inputs-box-style inputs-first-step">
+        <input type="text" placeholder="Título do seu quizz" />
+        <input type="text" placeholder="URL da imagem do seu quizz" />
+        <input type="text" placeholder="Quantidade de perguntas do quizz" />
+        <input type="text" placeholder="Quantidade de níveis do quizz" />
       </div>
-      <div class="second-step step-style hidden">
-        <h2>Crie suas perguntas</h2>
-        <div class="creating-questions"></div>
-        <button class="next-step" onclick="secondStepCreating()">
-          <span>Prosseguir pra criar níveis</span>
-        </button>
-      </div>
-      <div class="third-step step-style hidden">
-        <h2>Agora decida os níveis</h2>
-        <div class="creating-levels"></div>
-        <button class="next-step" onclick="thirdStepCreating()">
-          <span>Finalizar Quizz</span>
-        </button>
-      </div>
-      <div class="success step-style hidden">
-        <h2>Seu quizz está pronto!</h2>
-        <div class="user-quizz"></div>
-        <button class="next-step" onclick="selectPublicQuizz(idQuizz)">
-          <span>Acessar Quizz</span>
-        </button>
-        <span class="refresh" onclick="refreshPage()">Voltar pra home</span>
-      </div>
+      <button class="next-step" onclick="firstStepCreating()">
+        <span>Prosseguir pra criar perguntas</span>
+      </button>
     </div>
-  </body>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="assets/script.js"></script>
+    <div class="second-step step-style hidden">
+      <h2>Crie suas perguntas</h2>
+      <div class="creating-questions"></div>
+      <button class="next-step" onclick="secondStepCreating()">
+        <span>Prosseguir pra criar níveis</span>
+      </button>
+    </div>
+    <div class="third-step step-style hidden">
+      <h2>Agora decida os níveis</h2>
+      <div class="creating-levels"></div>
+      <button class="next-step" onclick="thirdStepCreating()">
+        <span>Finalizar Quizz</span>
+      </button>
+    </div>
+    <div class="success step-style hidden">
+      <h2>Seu quizz está pronto!</h2>
+      <div class="user-quizz"></div>
+      <button class="next-step">
+        <span>Acessar Quizz</span>
+      </button>
+      <span class="refresh" onclick="refreshPage()">Voltar pra home</span>
+    </div>
+
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="assets/script.js"></script>
+
 </html>

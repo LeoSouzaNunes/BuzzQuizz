@@ -140,7 +140,7 @@ function selectPublicQuizz(a) {
                 </div>
                 <div class="buttons-home-again">
                 <button id="again" >Reiniciar Quiz</button>
-                <button id="home" refreshPage()>Voltar Home</button></div>` )
+                <button id="home" onclick="refreshPage()">Voltar Home</button></div>` )
               console.log(id.data.levels[0].text)
               
                 let b = 
