@@ -260,6 +260,39 @@ body {
   line-height: 23px;
 }
 
+.anwsers-result {
+  display: flex;
+}
+
+.buttons-home-again {
+  display: flex;
+  flex-direction: column;
+}
+#again {
+  font-size: 21px;
+  line-height: 25px;
+  width: 260.38px;
+  height: 52px;
+  margin-top: 76px;
+  margin-bottom: 16px;
+  background: #ec362d;
+  border-radius: 15px;
+  color: #fff5f4;
+  border: none;
+  outline: none;
+}
+#home {
+  font-size: 21px;
+  line-height: 25px;
+  width: 260.38px;
+  height: 52px;
+  background: #fff;
+  border-radius: 15px;
+  color: #818181;
+  border: none;
+  outline: none;
+}
+
 .text-wrong-answer {
   opacity: 35%;
 }

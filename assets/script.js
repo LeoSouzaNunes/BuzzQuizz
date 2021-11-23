@@ -39,6 +39,7 @@ let ulAllQuizzes;
 let idQuizzesGlobal = 0;
 
 
+
 let promiseAllQuizzes = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes");
 promiseAllQuizzes.then(loadAllQuizzes);
 
@@ -81,12 +82,12 @@ function selectPublicQuizz(a) {
 
             let getIDQuiz = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${a}`)
             getIDQuiz.then((id)=>{
-               console.log(id)
+               console.log(id.data.levels[0].text)
                
                 imgQuiz.innerHTML = `<div class="question-quiz"><div class="img-quiz" /></div>
                 <h1>${id.data.title}</h1>
               `
-              
+              console.log(id.data.levels)
               let randomNumber;
               let tmp;
               let rdnAnswers = [];
@@ -126,10 +127,22 @@ function selectPublicQuizz(a) {
                 <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[rdnAnswers[3]].isCorrectAnswer},this)">
                   <img src="${id.data.questions[i].answers[rdnAnswers[3]].image}" />
                   <span ">${id.data.questions[i].answers[rdnAnswers[3]].text}</span>
-                </div>`
+                </div>
+                `
                 
                 
               }
+              console.log(document.querySelector(".questions").parentNode.lastChild.innerHTML =
+               `<div class="anwsers-title">${id.data.levels[0].text}</div>
+               <div class="anwsers-result">
+                  <img src="${id.data.levels[0].image}" />
+                  <span ">${id.data.levels[0].text}</span>
+                </div>
+                <div class="buttons-home-again">
+                <button id="again" >Reiniciar Quiz</button>
+                <button id="home" refreshPage()>Voltar Home</button></div>` )
+              console.log(id.data.levels[0].text)
+              
                 let b = 
                 `.img-quiz
                 { width: 100%;
@@ -138,14 +151,21 @@ function selectPublicQuizz(a) {
                 background-repeat: no-repeat;
                 background-size: cover;
                 }`
+                console.log(id.data.levels)
             
-                
+              
+              
+            
+               
             })   
 }
 let arrayOFAnsewrs = []
+let olnyAnsewrs
+let olnyAnsewrsTrue =0
 function incorrectAnwsers(anwser,div){
   let count = 0
   let ans= document.querySelectorAll(".anwsers")
+  let endQuiz = document.querySelector(".second-page")
  
     for(let i = 0 ; i<div.classList.length;i++)
     {if(div.classList[i] == "color-text-wrong-answer" || div.classList[i] == "text-wrong-answer" || div.classList[i] == "color-text-right-answer"){
@@ -181,7 +201,7 @@ function incorrectAnwsers(anwser,div){
       }
       
     }
-    let olnyAnsewrs
+    
      for(let i =0;i< arrayOFAnsewrs.length;i++){
       
        olnyAnsewrs =  arrayOFAnsewrs.filter(()=>{ return arrayOFAnsewrs[i] !== "" || arrayOFAnsewrs[i] !== null})
@@ -191,8 +211,21 @@ function incorrectAnwsers(anwser,div){
     
     
    setInterval((div.parentNode.nextSibling.scrollIntoView({block: "end",behavior: "smooth"})),2000) 
-  
+    console.log(100/olnyAnsewrs.length)
+    
+    if(olnyAnsewrs.length>= 3){
+        
+      for(let i = 0;i<olnyAnsewrs.length;i++){
+if(olnyAnsewrs[i] ==="incorrectAnwsers(true,this)"){
+    
+    a +=1 
 
+}
+
+      }
+      olnyAnsewrsTrue * (100/olnyAnsewrs.length)
+      
+    }
 }
 
 function thirdPageOn() {
