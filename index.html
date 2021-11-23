@@ -30,43 +30,43 @@
         <ul class="all-quizzes"></ul>
       </div>
     </div>
-    <div class="second-page"></div>
+  </div>
+  <div class="second-page"></div>
 
-    <div class="third-page hidden">
-      <div class="first-step step-style">
-        <h2>Comece pelo começo</h2>
-        <div class="inputs-box-style inputs-first-step">
-          <input type="text" placeholder="Título do seu quizz" />
-          <input type="text" placeholder="URL da imagem do seu quizz" />
-          <input type="text" placeholder="Quantidade de perguntas do quizz" />
-          <input type="text" placeholder="Quantidade de níveis do quizz" />
-        </div>
-        <button class="next-step" onclick="firstStepCreating()">
-          <span>Prosseguir pra criar perguntas</span>
-        </button>
+  <div class="third-page hidden">
+    <div class="first-step step-style">
+      <h2>Comece pelo começo</h2>
+      <div class="inputs-box-style inputs-first-step">
+        <input type="text" placeholder="Título do seu quizz" />
+        <input type="text" placeholder="URL da imagem do seu quizz" />
+        <input type="text" placeholder="Quantidade de perguntas do quizz" />
+        <input type="text" placeholder="Quantidade de níveis do quizz" />
       </div>
-      <div class="second-step step-style hidden">
-        <h2>Crie suas perguntas</h2>
-        <div class="creating-questions"></div>
-        <button class="next-step" onclick="secondStepCreating()">
-          <span>Prosseguir pra criar níveis</span>
-        </button>
-      </div>
-      <div class="third-step step-style hidden">
-        <h2>Agora decida os níveis</h2>
-        <div class="creating-levels"></div>
-        <button class="next-step" onclick="thirdStepCreating()">
-          <span>Finalizar Quizz</span>
-        </button>
-      </div>
-      <div class="success step-style hidden">
-        <h2>Seu quizz está pronto!</h2>
-        <div class="user-quizz"></div>
-        <button class="next-step" onclick="selectPublicQuizz(idQuizz)">
-          <span>Acessar Quizz</span>
-        </button>
-        <span class="refresh" onclick="refreshPage()">Voltar pra home</span>
-      </div>
+      <button class="next-step" onclick="firstStepCreating()">
+        <span>Prosseguir pra criar perguntas</span>
+      </button>
+    </div>
+    <div class="second-step step-style hidden">
+      <h2>Crie suas perguntas</h2>
+      <div class="creating-questions"></div>
+      <button class="next-step" onclick="secondStepCreating()">
+        <span>Prosseguir pra criar níveis</span>
+      </button>
+    </div>
+    <div class="third-step step-style hidden">
+      <h2>Agora decida os níveis</h2>
+      <div class="creating-levels"></div>
+      <button class="next-step" onclick="thirdStepCreating()">
+        <span>Finalizar Quizz</span>
+      </button>
+    </div>
+    <div class="success step-style hidden">
+      <h2>Seu quizz está pronto!</h2>
+      <div class="user-quizz"></div>
+      <button class="next-step">
+        <span>Acessar Quizz</span>
+      </button>
+      <span class="refresh" onclick="refreshPage()">Voltar pra home</span>
     </div>
 
   </div>
