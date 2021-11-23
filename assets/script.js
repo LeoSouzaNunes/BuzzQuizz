@@ -139,6 +139,7 @@ function selectPublicQuizz(a) {
                 background-size: cover;
                 }`
             
+                
             })   
 }
 let arrayOFAnsewrs = []
@@ -186,12 +187,8 @@ function incorrectAnwsers(anwser,div){
        olnyAnsewrs =  arrayOFAnsewrs.filter(()=>{ return arrayOFAnsewrs[i] !== "" || arrayOFAnsewrs[i] !== null})
       
     } 
-
-    imgQuiz.innerHTML +=`<div class="anwsers-title">${id.data.questions[i].title}</div>
-    <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[rdnAnswers[0]].isCorrectAnswer},this)">
-      <img src="${id.data.questions[i].answers[rdnAnswers[0]].image}" />
-      <span>${id.data.questions[i].answers[rdnAnswers[0]].text}</span>
-    </div>`
+    
+    
     
    setInterval((div.parentNode.nextSibling.scrollIntoView({block: "end",behavior: "smooth"})),2000) 
   
