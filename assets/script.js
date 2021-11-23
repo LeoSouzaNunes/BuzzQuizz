@@ -57,7 +57,7 @@ function buildingQuizzes(value) {
 
 
   ulAllQuizzes.innerHTML += `<li class="quizz-box" onclick="selectPublicQuizz(${value.id})"
-    style="background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%),url(${value.image});background-repeat: no-repeat;background-size: cover;">
+    style="background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%),url(${value.image});background-repeat: no-repeat;background-size: cover;" data-identifier="quizz-card">
     <h3>${value.title}</h3>
 </li>`;
 }
@@ -263,7 +263,7 @@ function firstStepCreating() {
     let addQuestion = document.querySelector(".creating-questions");
     for (let i = 0; i < questionsToCreate; i++) {
       addQuestion.innerHTML += `
-      <div class="inputs-box-style creating-question">
+      <div class="inputs-box-style creating-question" data-identifier="question">
       <h2>Pergunta ${i + 1}</h2>
       <input type="text" class="creating-question-title" placeholder="Texto da pergunta">
       <input type="text" class="creating-question-color" placeholder="Cor de fundo da pergunta">
@@ -454,7 +454,7 @@ function secondStepCreating() {
     let addLevels = document.querySelector(".third-page .third-step .creating-levels")
     for (let i = 0; i < levelsToCreate; i++) {
       addLevels.innerHTML += `
-      <div class="inputs-box-style creating-level">
+      <div class="inputs-box-style creating-level" data-identifier="level">
       <h2> Nível ${i + 1}</h2>
       <input type="text" class="creating-level-title" placeholder="Título do nível">
       <input type="text" class="creating-level-percentage" placeholder="% de acerto mínima">
