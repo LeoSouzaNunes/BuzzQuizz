@@ -53,3 +53,8 @@ table {
 a{
     text-decoration: none;
 }
+textarea{
+	font-family: inherit;
+	font-size: inherit;
+	resize: none;
+}
