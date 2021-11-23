@@ -2,12 +2,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   gap: 60px 0px;
-  
+
   font-family: "Roboto", sans-serif;
 
-  background-color: #FAFAFA;
+  background-color: #fafafa;
 }
 .hidden {
   visibility: hidden;
@@ -38,7 +38,7 @@ body {
   color: #ffffff;
 }
 
-.header-title:hover{
+.header-title:hover {
   cursor: pointer;
 }
 
@@ -244,8 +244,6 @@ body {
   text-align: center;
 }
 
-
-
 .anwsers {
   display: flex;
   flex-direction: column;
@@ -260,7 +258,7 @@ body {
   font-weight: bold;
   font-size: 20px;
   line-height: 23px;
-  }
+}
 
 .text-wrong-answer {
   opacity: 35%;
@@ -271,20 +269,20 @@ body {
 .color-text-right-answer {
   color: #009c22;
 }
-.third-page{
+.third-page {
   width: 600px;
   height: 100%;
   padding-top: 40px;
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.third-page h2{
+.third-page h2 {
   display: flex;
   align-items: center;
-  
+
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
@@ -294,106 +292,99 @@ body {
   color: #000000;
 }
 
-.third-page input{
+.third-page input {
   padding-left: 15px;
   font-weight: normal;
   font-size: 19px;
   line-height: 22px;
-  
+
   width: 100%;
   height: 46px;
-  
-  background: #FFFFFF;
-  border: 1px solid #D1D1D1;
+
+  background: #ffffff;
+  border: 1px solid #d1d1d1;
   border-radius: 5px;
 }
 
-.third-page ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-      
+.third-page ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+
   font-style: italic;
   font-weight: normal;
   font-size: 19px;
   line-height: 22px;
-  
-  color: #BABABA;
+
+  color: #bababa;
   opacity: 1; /* Firefox */
 }
 
-.third-page button{
-  
+.third-page button {
   width: 70%;
   height: 54px;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 15px;
-  
-  background: #EC362D;
+
+  background: #ec362d;
   border-style: none;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
 }
-.third-page button:hover{
+.third-page button:hover {
   background: #f16a63;
   cursor: pointer;
   transition: 0.2s ease-in;
 }
-.third-page button span{
+.third-page button span {
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 21px;
   text-align: center;
 
-  color: #FFF5F4;
+  color: #fff5f4;
 }
 
-.third-page .inputs-box-style{
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-
-width: 100%;
-gap: 9px 0px;
-padding: 20px 20px;
-
-background: #FFFFFF;
-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
-}
-
-.step-style{
+.third-page .inputs-box-style {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+  justify-content: center;
+
+  width: 100%;
+  gap: 9px 0px;
+  padding: 20px 20px;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+.step-style {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   width: 100%;
   gap: 28px 0px;
 }
 
-.third-page .first-step .inputs-first-step{
-height: 256px;
+.third-page .first-step .inputs-first-step {
+  height: 256px;
 }
 
-.creating-questions{
-width: 100%;
+.creating-questions {
+  width: 100%;
 }
-
-.question-hidden{
-height: 70px;
+.creating-question {
+  margin-top: 10px;
+  padding: 10px 15px;
 }
-
-.creating-question{
-margin-top: 10px;
-padding: 10px 15px;
+.creating-questions .inputs-box-style h2 {
+  padding: 10px 0px;
 }
-
-.creating-questions .inputs-box-style h2{
-padding: 10px 0px;
-}
-
-.creating-levels{
+.creating-levels {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -410,37 +401,37 @@ padding: 10px 0px;
   line-height: 22px;
 
   word-wrap: break-word;
-  
+
   width: 563px;
   height: 100px;
-  
-  background: #FFFFFF;
-  border: 1px solid #D1D1D1;
+
+  background: #ffffff;
+  border: 1px solid #d1d1d1;
   border-radius: 5px;
 }
-.creating-level-text ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.creating-level-text ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
 
   font-style: italic;
   font-weight: normal;
   font-size: 19px;
   line-height: 22px;
-  
-  color: #BABABA;
-  opacity: 1; /* Firefox */
 
+  color: #bababa;
+  opacity: 1; /* Firefox */
 }
 
-.user-quizz{
+.user-quizz {
   position: relative;
   width: 500px;
   height: 266px;
 }
-.user-quizz .quizz-box{
+.user-quizz .quizz-box {
   width: 100%;
   height: 100%;
   border-radius: 10px;
 }
-.success .refresh{
+.success .refresh {
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
@@ -450,14 +441,13 @@ padding: 10px 0px;
   text-align: center;
 
   color: #818181;
-  }
-.success .refresh:hover{
+}
+.success .refresh:hover {
   cursor: pointer;
 }
-.hidden{
+.hidden {
   display: none;
 }
-
 
 @media (max-width: 1100px) {
   * ::-webkit-scrollbar {
@@ -508,104 +498,104 @@ padding: 10px 0px;
   .all-quizzes-container {
     padding-bottom: 200px;
     width: 90%;
-  }   
-    .third-page{
-      width: 100%;
-      height: 100%;
-      padding-top: 40px;
-      
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .third-page h2{
-      font-style: normal;
-      font-weight: bold;
-      font-size: 20px;
-      line-height: 23px;
-      display: flex;
-      align-items: center;
-      
-      color: #000000;
-    }
-    
-    .third-page input{
-      padding-left: 15px;
-      font-weight: normal;
-      font-size: 19px;
-      line-height: 22px;
-      
-      width: 341px;
-      height: 46px;
-      
-      background: #FFFFFF;
-      border: 1px solid #D1D1D1;
-      border-radius: 5px;
-    }
-    
-    .third-page ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-      
-      font-style: italic;
-      font-weight: normal;
-      font-size: 19px;
-      line-height: 22px;
-      
-      color: #BABABA;
-      opacity: 1; /* Firefox */
-    }
-    
-    .third-page button{
-      
-      width: 324px;
-      height: 54px;
-      
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 15px;
-      
-      background: #EC362D;
-      border-style: none;
-      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
-      border-radius: 15px;
-    }
-    .third-page button span{
-      font-style: normal;
-      font-weight: normal;
-      font-size: 18px;
+  }
+  .third-page {
+    width: 100%;
+    height: 100%;
+    padding-top: 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .third-page h2 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+  }
+
+  .third-page input {
+    padding-left: 15px;
+    font-weight: normal;
+    font-size: 19px;
+    line-height: 22px;
+
+    width: 341px;
+    height: 46px;
+
+    background: #ffffff;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+  }
+
+  .third-page ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+
+    font-style: italic;
+    font-weight: normal;
+    font-size: 19px;
+    line-height: 22px;
+
+    color: #bababa;
+    opacity: 1; /* Firefox */
+  }
+
+  .third-page button {
+    width: 324px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+
+    background: #ec362d;
+    border-style: none;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+  }
+  .third-page button span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
     line-height: 21px;
     text-align: center;
-    
-    color: #FFF5F4;
+
+    color: #fff5f4;
   }
-  
-  .third-page .inputs-box-style{
+
+  .third-page .inputs-box-style {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+
     gap: 9px 0px;
     width: 100%;
-    
-    background: #FFFFFF;
+
+    background: #ffffff;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
   }
-  
-  .step-style{
+
+  .step-style {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     width: 100%;
     gap: 28px 0px;
   }
-  
-  .third-page .first-step .inputs-first-step{
+
+  .third-page .first-step .inputs-first-step {
     height: 256px;
   }
-  .creating-questions{
+  .creating-questions {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -614,10 +604,10 @@ padding: 10px 0px;
     gap: 20px 0px;
     width: 100%;
   }
-  .creating-question{
+  .creating-question {
     padding: 10px 15px;
   }
-  .creating-levels{
+  .creating-levels {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -632,46 +622,45 @@ padding: 10px 0px;
     font-size: 19px;
     line-height: 22px;
 
-    
     width: 341px;
     height: 177px;
-    
-    background: #FFFFFF;
-    border: 1px solid #D1D1D1;
+
+    background: #ffffff;
+    border: 1px solid #d1d1d1;
     border-radius: 5px;
   }
-  .creating-level-text ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  
+  .creating-level-text ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+
     font-style: italic;
     font-weight: normal;
     font-size: 19px;
     line-height: 22px;
-    
-    color: #BABABA;
+
+    color: #bababa;
     opacity: 1; /* Firefox */
-  
   }
 
-  .user-quizz{
+  .user-quizz {
     position: relative;
     width: 340px;
     height: 181px;
   }
-  .user-quizz .quizz-box{
+  .user-quizz .quizz-box {
     width: 100%;
     height: 100%;
     border-radius: 10px;
   }
-  .success .refresh{
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 21px;
-  display: flex;
-  align-items: center;
-  text-align: center;
+  .success .refresh {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
 
-  color: #818181;
+    color: #818181;
   }
   .hidden {
     display: none;

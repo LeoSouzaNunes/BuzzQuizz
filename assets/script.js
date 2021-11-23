@@ -1,4 +1,3 @@
-
 let hideFirstPage = document.querySelector(".first-page");
 let hideFirstStep;
 let showSecondStep;
@@ -37,6 +36,7 @@ let levelsToCreate = 0;
 
 let arrayAllQuizzes;
 let ulAllQuizzes;
+let idQuizzesGlobal = 0;
 
 
 let promiseAllQuizzes = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes");
@@ -50,11 +50,12 @@ function loadAllQuizzes(allQuizzes) {
 
   for (let i = 0; i < arrayAllQuizzes.length; i++) {
     buildingQuizzes(arrayAllQuizzes[i]);
-
   }
 }
 
 function buildingQuizzes(value) {
+
+
   ulAllQuizzes.innerHTML += `<li class="quizz-box" onclick="selectPublicQuizz(${value.id})"
     style="background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%),url(${value.image});background-repeat: no-repeat;background-size: cover;">
     <h3>${value.title}</h3>
@@ -62,8 +63,7 @@ function buildingQuizzes(value) {
 }
 
 function selectPublicQuizz(a) {
-  /* let hideFirstPage = document.querySelector(".first-page")
-  hideFirstPage.classList.add("hidden"); */
+  idQuizzesGlobal = a
   document.styleSheets[1].deleteRule(4)
   document.styleSheets[1].insertRule(`.first-page {
       display: none;
@@ -72,44 +72,62 @@ function selectPublicQuizz(a) {
     
       gap: 60px 0px;
     }`, 5)
-  console.log(document.styleSheets[1])
+
 
 
   let imgQuiz = document.querySelector(".second-page")
   console.log(arrayAllQuizzes)
 
+
   let getIDQuiz = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${a}`)
   getIDQuiz.then((id) => {
-
-    console.log(id.data.questions)
-
+    console.log(id)
 
     imgQuiz.innerHTML = `<div class="question-quiz"><div class="img-quiz" /></div>
                 <h1>${id.data.title}</h1>
               `
 
+    let randomNumber;
+    let tmp;
+    let rdnAnswers = [];
+    for (let i = 0; i < 4; i++) {
+      rdnAnswers[i] = i;
+    }
+
+    for (let i = rdnAnswers.length; i;) {
+
+
+      randomNumber = Math.random() * i-- | 0;
+      tmp = rdnAnswers[randomNumber];
+      // troca o número aleatório pelo atual
+      rdnAnswers[randomNumber] = rdnAnswers[i];
+      // troca o atual pelo aleatório
+      rdnAnswers[i] = tmp;
+
+    }
+
     for (let i = 0; i < id.data.questions.length; i++) {
 
-      console.log(id.data.questions[i].answers.length)
 
       imgQuiz.innerHTML += `<div class="questions" >
                 <div class="anwsers-title">${id.data.questions[i].title}</div>
-                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[0].isCorrectAnswer},this)">
-                  <img src="${id.data.questions[i].answers[0].image}" />
-                  <span>${id.data.questions[i].answers[0].text}</span>
+                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[rdnAnswers[0]].isCorrectAnswer},this)">
+                  <img src="${id.data.questions[i].answers[rdnAnswers[0]].image}" />
+                  <span>${id.data.questions[i].answers[rdnAnswers[0]].text}</span>
                 </div>
-                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[1].isCorrectAnswer},this)">
-                  <img src="${id.data.questions[i].answers[1].image}" />
-                  <span>${id.data.questions[i].answers[1].text}</span>
+                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[rdnAnswers[1]].isCorrectAnswer},this)">
+                  <img src="${id.data.questions[i].answers[rdnAnswers[1]].image}" />
+                  <span>${id.data.questions[i].answers[rdnAnswers[1]].text}</span>
                 </div>
-                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[2].isCorrectAnswer},this)">
-                  <img src="${id.data.questions[i].answers[2].image}" />
-                  <span>${id.data.questions[i].answers[2].text}</span>
+                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[rdnAnswers[2]].isCorrectAnswer},this)">
+                  <img src="${id.data.questions[i].answers[rdnAnswers[2]].image}" />
+                  <span>${id.data.questions[i].answers[rdnAnswers[2]].text}</span>
                 </div>
-                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[3].isCorrectAnswer},this)">
-                  <img src="${id.data.questions[i].answers[3].image}" />
-                  <span ">${id.data.questions[i].answers[3].text}</span>
+                <div class="anwsers" onclick="incorrectAnwsers(${id.data.questions[i].answers[rdnAnswers[3]].isCorrectAnswer},this)">
+                  <img src="${id.data.questions[i].answers[rdnAnswers[3]].image}" />
+                  <span ">${id.data.questions[i].answers[rdnAnswers[3]].text}</span>
                 </div>`
+
 
     }
     let b =
@@ -121,55 +139,58 @@ function selectPublicQuizz(a) {
                 background-size: cover;
                 }`
 
-    console.log(document.styleSheets[1].insertRule(b))
+
   })
 }
-
+let arrayOFAnsewrs = []
 function incorrectAnwsers(anwser, div) {
-  let count = 0;
-  count += 1;
-  if (count >= 2) {
-    return
+  let count = 0
+  let ans = document.querySelectorAll(".anwsers")
+
+  for (let i = 0; i < div.classList.length; i++) {
+    if (div.classList[i] == "color-text-wrong-answer" || div.classList[i] == "text-wrong-answer" || div.classList[i] == "color-text-right-answer") {
+      return
+    }
   }
-  console.log(div.parentNode.children[1].attributes[1])
+  for (let i = 1; i < div.parentNode.children.length; i++) {
+    if (div.attributes[1].specified !== anwser) {
+      div.parentNode.children[i].classList.add("color-text-wrong-answer")
+      if (div !== div.parentNode.children[i]) {
+        div.parentNode.children[i].classList.add("text-wrong-answer")
 
-  if (div.attributes[1].specified !== anwser) {
+      }
+    }
+    else {
 
+      div.classList.add("color-text-right-answer")
+      if (div !== div.parentNode.children[i]) {
+        div.parentNode.children[i].classList.add("text-wrong-answer")
+        div.parentNode.children[i].classList.add("color-text-wrong-answer")
 
-
-    div.classList.remove("text-wrong-answer")
-    div.classList.add("text-wrong-answer")
-    div.classList.add("color-text-wrong-answer")
-    console.log(div.attributes[1])
+      }
+    }
   }
-  else {
-    div.classList.add("text-wrong-answer")
-    div.classList.add("color-text-wrong-answer")
-    div.classList.remove("text-wrong-answer")
-    div.classList.add("color-text-right-answer")
+
+
+  for (let i = 0; i < ans.length; i++) {
+    if (ans[i] === div) {
+      arrayOFAnsewrs[i] = div.attributes[1].value
+    }
+
+  }
+  let olnyAnsewrs
+  for (let i = 0; i < arrayOFAnsewrs.length; i++) {
+
+    olnyAnsewrs = arrayOFAnsewrs.filter(() => { return arrayOFAnsewrs[i] !== "" || arrayOFAnsewrs[i] !== null })
+
   }
 
-  console.log(div.parentNode.children)
+
+
+  setInterval((div.parentNode.nextSibling.scrollIntoView({ block: "end", behavior: "smooth" })), 2000)
+
 
 }
-/* for(let i = 1;i<div.parentNode.childElementCount;i++)
-{
-if(div.parentNode.children[i].attributes[1].specified!==anwser){
- 
- 
- 
-div.classList.remove("text-wrong-answer")  
-div.parentNode.children[i].classList.add("text-wrong-answer")
-div.parentNode.children[i].classList.add("color-text-wrong-answer")
-console.log(div.parentNode.children[i].attributes[1])
-}
-else {
-div.parentNode.children[i].classList.add("text-wrong-answer")
-div.parentNode.children[i].classList.add("color-text-wrong-answer")
-div.classList.remove("text-wrong-answer") 
-div.classList.add("color-text-right-answer")
-}
-} */
 
 function thirdPageOn() {
   inputsFirstStep = document.querySelectorAll(".third-page .first-step .inputs-first-step input");
