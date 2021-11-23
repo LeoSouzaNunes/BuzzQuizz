@@ -379,13 +379,20 @@ height: 256px;
 .creating-questions{
 width: 100%;
 }
+
+.question-hidden{
+height: 70px;
+}
+
 .creating-question{
 margin-top: 10px;
 padding: 10px 15px;
 }
+
 .creating-questions .inputs-box-style h2{
 padding: 10px 0px;
 }
+
 .creating-levels{
   display: flex;
   flex-direction: column;
