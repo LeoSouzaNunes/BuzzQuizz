@@ -497,16 +497,16 @@ function thirdStepCreating() {
   promiseCreateQuizz.then(() => {
 
     let quizzPreview = document.querySelector(".success .user-quizz")
-    let idQuizz;
+    /*let idQuizz;
     for (let i = 0; i < arrayAllQuizzes.length; i++) {
       if (arrayAllQuizzes[i].data.title === quizzFeatures.title) {
         idQuizz = arrayAllQuizzes[i].data.id;
       } else {
 
       }
-    }
+    }*/
 
-    quizzPreview.innerHTML = `<div class="quizz-box" onclick="selectPublicQuizz(${idQuizz})"
+    quizzPreview.innerHTML = `<div class="quizz-box" onclick="selectPublicQuizz()"
     style="background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%),url(${quizzFeatures.image});background-repeat: no-repeat;background-size: cover;">
     <h3>${quizzFeatures.title}</h3>
 </div>`
@@ -523,7 +523,7 @@ function thirdStepCreating() {
     showSuccess.classList.remove("hidden")
 
   })
-  promiseCreateQuizz.catch(() => { alert("Deu ruim!") })
+  promiseCreateQuizz.catch(() => { alert("Erro, tente novamente.") })
   console.log(quizzFeatures)
 }
 
